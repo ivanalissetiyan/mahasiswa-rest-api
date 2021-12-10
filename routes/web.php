@@ -14,3 +14,5 @@
 */
 
 $router->post('/mahasiswa', 'MahasiswaController@create');
+$router->get('/mahasiswa', 'MahasiswaController@index');
+$router->get('/mahasiswa/{id}', 'MahasiswaController@show');
