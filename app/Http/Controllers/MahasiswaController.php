@@ -36,4 +36,27 @@ class MahasiswaController extends Controller
 
         return response()->json($mahasiswa);
     }
+
+    // API PUT
+    public function update(Request $request, $id)
+    {
+        $mahasiswa = Mahasiswa::find($id);
+
+        if (!$mahasiswa) {
+            return response()->json(['message' => 'Mahasiswa Not Found'], 404);
+        }
+
+        // $this->validate($request, [
+        //     'npm' => 'required|string',
+        //     'nama' => 'required|string',
+        //     'semester' => 'required|string',
+        // ]);
+
+        $data = $request->all();
+
+        $mahasiswa->fill($data);
+
+        $mahasiswa->save();
+        return response()->json($mahasiswa);
+    }
 }
