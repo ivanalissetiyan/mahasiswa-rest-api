@@ -43,7 +43,7 @@ class MahasiswaController extends Controller
         $mahasiswa = Mahasiswa::find($id);
 
         if (!$mahasiswa) {
-            return response()->json(['message' => 'Mahasiswa Not Found'], 404);
+            return response()->json(['message' => 'Data Mahasiswa Tidak Ditemukan'], 404);
         }
 
         // $this->validate($request, [
@@ -58,5 +58,16 @@ class MahasiswaController extends Controller
 
         $mahasiswa->save();
         return response()->json($mahasiswa);
+    }
+
+    public function destroy($id)
+    {
+        $mahasiswa = Mahasiswa::find($id);
+        if (!$mahasiswa) {
+            return response()->json(['message' => 'Data Mahasiswa Tidak Ditemukan'], 404);
+        }
+
+        $mahasiswa->delete();
+        return response()->json(['message' => 'Data Mahasiswa Berhasil Dihapus']);
     }
 }
