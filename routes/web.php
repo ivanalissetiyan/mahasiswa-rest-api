@@ -18,3 +18,6 @@ $router->get('/mahasiswa', 'MahasiswaController@index');
 $router->get('/mahasiswa/{id}', 'MahasiswaController@show');
 $router->put('/mahasiswa/{id}', 'MahasiswaController@update');
 $router->delete('/mahasiswa/{id}', 'MahasiswaController@destroy');
+
+$router->post('/register', 'UserController@register');
+$router->post('/login', 'UserController@login');
